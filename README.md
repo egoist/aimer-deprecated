@@ -1,6 +1,6 @@
 # Aimer
 
-The UI Development Environment, so simple that you'll fall in love with.
+The UI Development Framework, it's so simple that you'll fall in love with.
 
 ## Install
 
