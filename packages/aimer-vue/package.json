@@ -1,0 +1,22 @@
+{
+  "name": "aimer-vue",
+  "version": "1.0.0",
+  "main": "dist/aimer-vue.common.js",
+  "unpkg": "dist/aimer-vue.js",
+  "cdn": "dist/aimer-vue.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run build",
+    "build": "bili --format cjs,umd --module-name AimerVue"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.5.2"
+  },
+  "devDependencies": {
+    "bili": "^0.18.2",
+    "vue": "^2.5.2"
+  }
+}

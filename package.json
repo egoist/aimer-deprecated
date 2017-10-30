@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "aimer-manager",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "lerna bootstrap && lerna exec -- npm test"
+  },
+  "devDependencies": {
+    "lerna": "^2.4.0"
+  }
+}

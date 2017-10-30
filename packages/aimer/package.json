@@ -1,0 +1,25 @@
+{
+  "name": "aimer",
+  "version": "0.0.0",
+  "scripts": {
+    "example": "poi -c example/poi.config.js",
+    "test": "npm run build",
+    "build": "bili --format cjs,umd --module-name Aimer --plugins vue --vue.css dist/aimer.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/aimer.common.js",
+  "unpkg": "dist/aimer.js",
+  "cdn": "dist/aimer.js",
+  "devDependencies": {
+    "bili": "^0.18.2",
+    "poi": "^9.4.4",
+    "rollup-plugin-vue": "^2.5.2",
+    "vue": "^2.5.2"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.5.2"
+  }
+}
