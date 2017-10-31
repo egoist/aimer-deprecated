@@ -17,17 +17,14 @@
   "devDependencies": {
     "marked3": "^0.5.1",
     "poi": "^9.4.4",
-    "svg-to-component-loader": "^0.1.1",
-    "vue": "^2.5.2"
+    "svg-to-component-loader": "^0.1.1"
   },
   "license": "MIT",
-  "peerDependencies": {
-    "vue": "^2.5.2"
-  },
   "dependencies": {
     "github-markdown-css": "^2.9.0",
     "nano-assign": "^1.0.0",
     "nanoquery": "^1.1.0",
-    "slugo": "^0.2.1"
+    "slugo": "^0.2.1",
+    "vue": "^2.5.2"
   }
 }
