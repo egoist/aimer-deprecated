@@ -28,7 +28,7 @@ const aimer = new Aimer({
 aimer.add({
   title: 'With text',
   component: {
-    template: '<my-button>hello world</my-button',
+    template: '<my-button>hello world</my-button>',
     components: {
       MyButton
     },
@@ -40,7 +40,7 @@ aimer.add({
 aimer.add({
   title: 'With emoji',
   component: {
-    template: '<my-button>😄🎉😎👻</my-button',
+    template: '<my-button>😄🎉😎👻</my-button>',
     components: {
       MyButton
     }
