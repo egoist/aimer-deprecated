@@ -1,33 +1,22 @@
 import Vue from 'vue'
 import Aimer from '../src'
-
-class Adapter {
-  mount(component, target) {
-    return new Vue({
-      el: target,
-      render: h => h(component)
-    })
-  }
-
-  unmount(mounted) {
-    mounted.$destroy()
-  }
-}
+import marked from 'marked3'
+import Button from './Button.vue'
 
 const aimer = new Aimer({
-  adapter: Adapter
+  // title: 'Aimer Example'
 })
 
 aimer.add({
   title: 'With text',
-  component: {
+  component: () => ({
     render(h) {
-      return h('button', null, ['hello world'])
+      return h(Button, null, ['hello world'])
     },
     beforeDestroy() {
       console.log('bye')
     }
-  },
+  }),
   example: `
 <template>
   <my-button>hello world</my-button>
@@ -42,14 +31,27 @@ export default {
   }
 }
 </script>
-  `.trim()
+  `.trim(),
+  readme: marked(`
+# this is an example component
+
+> for god's sake
+
+![blow](https://media.giphy.com/media/YhAJHW59JfsNW/giphy.gif)
+
+\`\`\`js
+function foo() {
+  console.log('write some shitty code')
+}
+\`\`\`
+`)
 })
 
 aimer.add({
   title: 'With emoji',
   component: {
     render(h) {
-      return h('button', null, ['😄🎉😎👻'])
+      return h(Button, null, ['😄🎉😎👻'])
     }
   }
 })

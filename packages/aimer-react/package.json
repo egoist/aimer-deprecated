@@ -1,0 +1,29 @@
+{
+  "name": "aimer-react",
+  "version": "1.0.0",
+  "main": "dist/aimer-react.common.js",
+  "unpkg": "dist/aimer-react.js",
+  "cdn": "dist/aimer-react.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run build",
+    "build": "bili --format cjs,umd --module-name AimerReact --external react-dom",
+    "example": "poi example/index.js --presets react"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "aimer": "^1.3.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "aimer": "^1.3.0",
+    "bili": "^0.18.2",
+    "poi": "^9.4.4",
+    "poi-preset-react": "^9.1.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}

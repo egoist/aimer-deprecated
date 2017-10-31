@@ -1,14 +1,21 @@
 <template>
   <div id="aimer">
     <header class="aimer-header">
-      <h1 class="aimer-brand">Aimer</h1>
+      <a href="https://github.com/egoist/aimer" v-if="!config.title" target="_blank">
+        <h1 class="aimer-brand">
+          Aimer
+        </h1>
+      </a>
+      <h1 class="aimer-title" v-else>
+        <a href="./">{{ config.title }}</a>
+      </h1>
       <select
         @change="handleRender"
-        v-model="currentStoryIndex">
+        v-model="currentStorySlug">
         <option
           v-for="(story, index) in stories"
           :key="story.title"
-          :value="index">
+          :value="story.slug">
           {{ story.title }}
         </option>
       </select>
@@ -17,14 +24,56 @@
       <div class="aimer-cell aimer-component">
         <div class="aimer-target-wrapper" ref="targetWrapper"></div>
       </div>
-      <div class="aimer-cell aimer-example" v-if="currentStory.example">
-        <pre><code>{{ currentStory.example }}</code></pre>
+      <div class="aimer-cell aimer-tabs" v-if="currentStory.example">
+        <div class="aimer-tab-headers">
+          <div
+            class="aimer-tab-header"
+            :class="{'aimer-tab-header__active': currentTab === 'readme'}"
+            v-if="currentStory.readme"
+            @click="chooseTab('readme')">
+            README
+          </div>
+          <div
+            class="aimer-tab-header"
+            :class="{'aimer-tab-header__active': currentTab === 'example'}"
+            v-if="currentStory.example"
+            @click="chooseTab('example')">
+            Example
+          </div>
+        </div>
+        <div
+          class="aimer-tab-readme markdown-body"
+          v-if="currentStory.readme && currentTab === 'readme'"
+          v-html="currentStory.readme">
+        </div>
+        <div
+          class="aimer-tab-example"
+          v-if="currentStory.example && currentTab === 'example'">
+          <pre><code>{{ currentStory.example }}</code></pre>
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import qs from 'nanoquery'
+
+function getCurrentTab({ readme }) {
+  return readme ? 'readme' : 'example'
+}
+
+function updateURL({ title, story }) {
+  const { host, protocol, pathname } = window.location
+  const newUrl = `${protocol}//${host}${pathname}?story=${story}`
+  // Update URL
+  window.history.pushState({
+    path: newUrl
+  }, title, newUrl)
+  // Update document title
+  document.title = title
+}
+
 export default {
   name: 'aimer',
 
@@ -36,18 +85,29 @@ export default {
     stories: {
       type: Array,
       required: true
+    },
+    config: {
+      type: Object
     }
   },
 
   data() {
+    const kv = qs(window.location.search)
     return {
-      currentStoryIndex: 0
+      currentTab: getCurrentTab(this.stories[0]),
+      currentStorySlug: kv.story || this.stories[0].slug
     }
   },
 
   computed: {
     currentStory() {
-      return this.stories[this.currentStoryIndex]
+      return this.stories.filter(story => story.slug === this.currentStorySlug)[0]
+    }
+  },
+
+  watch: {
+    currentStory(story) {
+      this.currentTab = getCurrentTab(story)
     }
   },
 
@@ -58,17 +118,30 @@ export default {
   methods: {
     handleRender() {
       const { targetWrapper } = this.$refs
-      if (this.__mounted) {
-        this.adapter.unmount(this.__mounted)
+      if (this.adapter.isMount()) {
+        this.adapter.unmount(targetWrapper.firstChild)
         targetWrapper.removeChild(targetWrapper.firstChild)
       }
       const target = document.createElement('div')
       targetWrapper.appendChild(target)
-      this.__mounted = this.adapter.mount(this.currentStory.component, target)
+      let { component } = this.currentStory
+      component = typeof component === 'function' ? component() : component
+      this.adapter.mount(component, target)
+
+      updateURL({
+        title: `${this.currentStory.title} - ${this.config.title || 'Aimer'}`,
+        story: this.currentStory.slug
+      })
+    },
+
+    chooseTab(tab) {
+      this.currentTab = tab
     }
   }
 }
 </script>
+
+<style src="github-markdown-css/github-markdown.css"></style>
 
 <style>
 html, body, #aimer {
@@ -104,6 +177,17 @@ body {
   text-indent: -9999em;
 }
 
+.aimer-title {
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-right: 10px;
+}
+
+.aimer-title a {
+  color: #000;
+  text-decoration: none;
+}
+
 .aimer-main {
   display: flex;
   padding: 10px;
@@ -114,20 +198,47 @@ body {
   flex-basis: 100%;
 }
 
-.aimer-example pre {
+.aimer-tabs {
+  padding-left: 10px;
+}
+
+.aimer-tabs pre {
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
   margin: 0;
-  padding-left: 10px;
+  border: 1px solid rgb(234, 234, 234);
+  background-color: transparent;
+  border-radius: 0;
+  padding: 20px;
 }
 
-.aimer-example pre code {
+.aimer-tabs pre code {
   font-size: 100%;
   word-break: normal;
   white-space: pre;
   background: transparent;
   color: #bd10e0;
   font-family: Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+}
+
+.aimer-tab-headers {
+  display: flex;
+  padding-bottom: 20px;
+  font-size: 13px;
+}
+
+.aimer-tab-header {
+  background-color: rgba(167, 182, 194, 0.3);
+  border-radius: 4px;
+  padding: 3px 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.aimer-tab-header__active {
+  background-color: #106ba3;
+  color: white;
+  cursor: default;
 }
 </style>

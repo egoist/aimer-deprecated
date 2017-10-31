@@ -4,8 +4,9 @@
   "description": "The UI Development Framework",
   "scripts": {
     "example": "poi -c example/poi.config.js",
-    "test": "npm run build",
-    "build": "bili --format cjs,umd --module-name Aimer --plugins vue --vue.css dist/aimer.css"
+    "prepublishOnly": "npm run build:cjs && npm run build:umd",
+    "build:cjs": "poi build --config poi.config.js --format cjs --filename.js aimer.common.js",
+    "build:umd": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.js"
   },
   "files": [
     "dist"
@@ -14,13 +15,18 @@
   "unpkg": "dist/aimer.js",
   "cdn": "dist/aimer.js",
   "devDependencies": {
-    "bili": "^0.18.2",
+    "marked3": "^0.5.1",
     "poi": "^9.4.4",
-    "rollup-plugin-vue": "^2.5.2",
     "vue": "^2.5.2"
   },
   "license": "MIT",
   "peerDependencies": {
     "vue": "^2.5.2"
+  },
+  "dependencies": {
+    "github-markdown-css": "^2.9.0",
+    "nano-assign": "^1.0.0",
+    "nanoquery": "^1.1.0",
+    "slugo": "^0.2.1"
   }
 }
