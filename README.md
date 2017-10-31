@@ -31,10 +31,10 @@ aimer.add({
     template: '<my-button>hello world</my-button>',
     components: {
       MyButton
-    },
-    readme: '<p>some html</p>',
-    example: '...some example code'
-  }
+    }
+  },
+  readme: '<p>some html</p>',
+  example: '...some example code'
 })
 
 aimer.add({
