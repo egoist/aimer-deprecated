@@ -55,6 +55,8 @@ Run this script with your favoite bundler of choice, maybe webpack? And you can 
 
 <img src="https://i.loli.net/2017/10/31/59f826060ee6f.png" width="500" alt="preview">
 
+See it [in action](https://aimer-button.egoist.moe). 🚀
+
 ## Work with other frameworks
 
 - [React](./packages/aimer-react)
