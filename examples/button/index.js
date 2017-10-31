@@ -5,7 +5,9 @@ import marked from 'marked3'
 import Button from './Button.vue'
 
 const aimer = new Aimer({
-  title: 'Button Example'
+  title: 'Button Example',
+  github: 'egoist/aimer',
+  twitter: '_egoistlily'
 })
 
 aimer.add({

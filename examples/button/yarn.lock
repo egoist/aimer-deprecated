@@ -32,8 +32,8 @@ address@^1.0.1:
   resolved "https://registry.npmjs.org/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
 
 aimer@^2.0.0-beta.1:
-  version "2.0.0-beta.1"
-  resolved "https://registry.npmjs.org/aimer/-/aimer-2.0.0-beta.1.tgz#0c0c3b115d5877ec02426898f03cd8371a8f3712"
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/aimer/-/aimer-2.0.0.tgz#6513bc3396913a56b0f53d447b5e61acc1d3c3a4"
   dependencies:
     github-markdown-css "^2.9.0"
     nano-assign "^1.0.0"
