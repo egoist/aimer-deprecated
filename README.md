@@ -59,6 +59,10 @@ Run this script with your favoite bundler of choice, maybe webpack? And you can 
 
 - [React](./packages/aimer-react)
 
+## Examples
+
+- [button](https://aimer-button.egoist.moe/)
+
 ## API
 
 ### new Aimer([options])
