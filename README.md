@@ -60,6 +60,7 @@ See it [in action](https://aimer-button.egoist.moe). 🚀
 ## Work with other frameworks
 
 - [React](./packages/aimer-react)
+- [Preact](./packages/aimer-preact)
 
 ## Examples
 

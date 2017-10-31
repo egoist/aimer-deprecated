@@ -5,7 +5,9 @@ import slugo from 'slugo'
 import AimerVue from './AimerVue'
 import AimerRoot from './Aimer.vue'
 
-window.AIMER_VERSION = process.env.AIMER_VERSION
+if (typeof window !== 'undefined') {
+  window.AIMER_VERSION = process.env.AIMER_VERSION
+}
 
 export default class Aimer {
   constructor({ adapter: Adapter = AimerVue, ...config } = {}) {
