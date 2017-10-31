@@ -80,12 +80,22 @@ function updateURL({ title, story }) {
   document.title = title
 }
 
+function mountComponent(adapter, targetWrapper, component) {
+  if (adapter.isMount()) {
+    adapter.unmount(targetWrapper.firstChild)
+    targetWrapper.removeChild(targetWrapper.firstChild)
+  }
+  const target = document.createElement('div')
+  targetWrapper.appendChild(target)
+  adapter.mount(component, target)
+}
+
 export default {
   name: 'aimer',
 
   props: {
-    adapter: {
-      type: Object,
+    Adapter: {
+      type: Function,
       required: true
     },
     stories: {
@@ -118,21 +128,16 @@ export default {
   },
 
   mounted() {
+    this.adapter = new this.Adapter()
     this.handleRender()
   },
 
   methods: {
     handleRender() {
       const { targetWrapper } = this.$refs
-      if (this.adapter.isMount()) {
-        this.adapter.unmount(targetWrapper.firstChild)
-        targetWrapper.removeChild(targetWrapper.firstChild)
-      }
-      const target = document.createElement('div')
-      targetWrapper.appendChild(target)
       let { component } = this.currentStory
       component = typeof component === 'function' ? component() : component
-      this.adapter.mount(component, target)
+      mountComponent(this.adapter, targetWrapper, component)
 
       updateURL({
         title: `${this.currentStory.title} - ${this.config.title || 'Aimer'}`,

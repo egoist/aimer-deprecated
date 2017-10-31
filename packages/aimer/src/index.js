@@ -9,7 +9,7 @@ window.AIMER_VERSION = process.env.AIMER_VERSION
 
 export default class Aimer {
   constructor({ adapter: Adapter = AimerVue, ...config } = {}) {
-    this.adapter = new Adapter()
+    this.Adapter = Adapter
     this.stories = []
     this.config = config
   }
@@ -32,7 +32,7 @@ export default class Aimer {
       render: h =>
         h(AimerRoot, {
           props: {
-            adapter: this.adapter,
+            Adapter: this.Adapter,
             stories: this.stories,
             config: this.config
           }

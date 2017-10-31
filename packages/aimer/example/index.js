@@ -55,7 +55,8 @@ aimer.add({
     render(h) {
       return h(Button, null, ['😄🎉😎👻'])
     }
-  }
+  },
+  example: `some example`
 })
 
 aimer.start('#app')
