@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "button",
+  "devDependencies": {
+    "aimer": "^2.0.0-beta.1",
+    "marked3": "^0.5.1",
+    "poi": "^9.4.4"
+  },
+  "scripts": {
+    "dev": "poi",
+    "build": "poi build"
+  }
+}

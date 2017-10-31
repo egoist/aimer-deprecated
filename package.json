@@ -9,7 +9,8 @@
   "xo": {
     "extends": "rem/prettier",
     "ignores": [
-      "**/example/**"
+      "**/example/**",
+      "examples/**"
     ],
     "envs": [
       "browser"
