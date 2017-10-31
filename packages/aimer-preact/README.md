@@ -25,7 +25,7 @@ const aimer = new Aimer({
 
 aimer.add({
   title: 'with text',
-  // Use a function that returns a React element 
+  // Use a function that returns a Preact element 
   component: () => <MyButton>Hello World</MyButton>
 })
 
