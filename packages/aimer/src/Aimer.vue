@@ -1,24 +1,29 @@
 <template>
   <div id="aimer">
     <header class="aimer-header">
-      <a href="https://github.com/egoist/aimer" v-if="!config.title" target="_blank">
-        <h1 class="aimer-brand">
-          Aimer
+      <div class="aimer-header__left">
+        <a href="https://github.com/egoist/aimer" v-if="!config.title" target="_blank">
+          <h1 class="aimer-brand">
+            Aimer
+          </h1>
+        </a>
+        <h1 class="aimer-title" v-else>
+          <a href="./">{{ config.title }}</a>
         </h1>
-      </a>
-      <h1 class="aimer-title" v-else>
-        <a href="./">{{ config.title }}</a>
-      </h1>
-      <select
-        @change="handleRender"
-        v-model="currentStorySlug">
-        <option
-          v-for="(story, index) in stories"
-          :key="story.title"
-          :value="story.slug">
-          {{ story.title }}
-        </option>
-      </select>
+        <select
+          @change="handleRender"
+          v-model="currentStorySlug">
+          <option
+            v-for="(story, index) in stories"
+            :key="story.title"
+            :value="story.slug">
+            {{ story.title }}
+          </option>
+        </select>
+        </div>
+      <div class="aimer-header__right">
+        <icons :github="config.github" :twitter="config.twitter"></icons>
+      </div>
     </header>
     <section class="aimer-main">
       <div class="aimer-cell aimer-component">
@@ -58,6 +63,7 @@
 
 <script>
 import qs from 'nanoquery'
+import Icons from './components/Icons.vue'
 
 function getCurrentTab({ readme }) {
   return readme ? 'readme' : 'example'
@@ -137,6 +143,10 @@ export default {
     chooseTab(tab) {
       this.currentTab = tab
     }
+  },
+
+  components: {
+    Icons
   }
 }
 </script>
@@ -162,13 +172,18 @@ body {
   height: 44px;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 20px;
+  justify-content: space-between;
+}
 
+.aimer-header__left, .aimer-header__right {
+  display: flex;
+  align-items: center;
 }
 
 .aimer-brand {
   font-weight: 300;
-  margin-right: 10px;
+  margin-right: 20px;
   height: 31px;
   width: 93px;
   background-size: cover;
@@ -180,7 +195,7 @@ body {
 .aimer-title {
   font-weight: 300;
   font-size: 1.4rem;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .aimer-title a {
@@ -190,7 +205,7 @@ body {
 
 .aimer-main {
   display: flex;
-  padding: 10px;
+  padding: 20px;
   height: calc(100% - 44px);
 }
 
@@ -199,7 +214,7 @@ body {
 }
 
 .aimer-tabs {
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .aimer-tabs pre {

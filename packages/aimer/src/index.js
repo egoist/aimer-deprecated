@@ -3,17 +3,15 @@ import './polyfills'
 import Vue from 'vue'
 import slugo from 'slugo'
 import AimerVue from './AimerVue'
-import App from './App.vue'
+import AimerRoot from './Aimer.vue'
 
 window.AIMER_VERSION = process.env.AIMER_VERSION
 
 export default class Aimer {
-  constructor({ adapter: Adapter = AimerVue, title } = {}) {
+  constructor({ adapter: Adapter = AimerVue, ...config } = {}) {
     this.adapter = new Adapter()
     this.stories = []
-    this.config = {
-      title
-    }
+    this.config = config
   }
 
   add(story) {
@@ -32,7 +30,7 @@ export default class Aimer {
     this.vm = new Vue({
       el: target,
       render: h =>
-        h(App, {
+        h(AimerRoot, {
           props: {
             adapter: this.adapter,
             stories: this.stories,

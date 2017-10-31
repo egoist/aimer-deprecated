@@ -83,6 +83,18 @@ Default: `AimerVue`
 
 Aimer adapter, check out the [default one](./packages/aimer/src/AimerVue.js) for reference.
 
+##### github
+
+Type: `string`
+
+GitHub repo slug or URL.
+
+##### twitter
+
+Type: `string`
+
+Twitter handle or URL.
+
 ### aimer.add(story)
 
 #### story
