@@ -73,7 +73,7 @@ See it [in action](https://aimer-button.egoist.moe). 🚀
 
 ##### title
 
-Default: `<Aimer Logo>`<br
+Default: `<Aimer Logo>`<br>
 Type: `string`
 
 Header title.
