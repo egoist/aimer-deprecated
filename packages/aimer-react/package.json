@@ -1,6 +1,6 @@
 {
   "name": "aimer-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/aimer-react.common.js",
   "unpkg": "dist/aimer-react.js",
   "cdn": "dist/aimer-react.js",

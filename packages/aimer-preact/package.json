@@ -1,6 +1,6 @@
 {
   "name": "aimer-preact",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/aimer-preact.common.js",
   "unpkg": "dist/aimer-preact.js",
   "cdn": "dist/aimer-preact.js",
@@ -14,11 +14,11 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "aimer": ">=2",
+    "aimer": "^2.0.2",
     "preact": ">=8.2.6"
   },
   "devDependencies": {
-    "aimer": "^2.0.0",
+    "aimer": "^2.0.2",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "bili": "^0.18.2",
     "poi": "^9.4.4",
