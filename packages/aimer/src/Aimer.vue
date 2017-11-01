@@ -90,6 +90,10 @@ function mountComponent(adapter, targetWrapper, component) {
   adapter.mount(component, target)
 }
 
+function getStoryBySlug(stories, slug) {
+  return stories.filter(story => story.slug === slug)[0]
+}
+
 export default {
   name: 'aimer',
 
@@ -109,15 +113,16 @@ export default {
 
   data() {
     const kv = qs(window.location.search)
+    const currentStorySlug = kv.story || this.stories[0].slug
     return {
-      currentTab: getCurrentTab(this.stories[0]),
-      currentStorySlug: kv.story || this.stories[0].slug
+      currentTab: getCurrentTab(getStoryBySlug(this.stories, currentStorySlug)),
+      currentStorySlug
     }
   },
 
   computed: {
     currentStory() {
-      return this.stories.filter(story => story.slug === this.currentStorySlug)[0]
+      return getStoryBySlug(this.stories, this.currentStorySlug)
     }
   },
 

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import Aimer from 'aimer'
 import 'aimer/dist/aimer.css'
 import marked from 'marked3'

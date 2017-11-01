@@ -4,16 +4,14 @@
   "description": "The UI Development Framework",
   "scripts": {
     "example": "poi -c example/poi.config.js",
-    "prepublishOnly": "npm run build:cjs && npm run build:umd",
-    "build:cjs": "poi build --config poi.config.js --format cjs --filename.js aimer.common.js",
-    "build:umd": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.js"
+    "prepublishOnly": "npm run build && npm run build:min",
+    "build": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.js",
+    "build:min": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.min.js --filename.css aimer.min.css --minimize"
   },
   "files": [
     "dist"
   ],
-  "main": "dist/aimer.common.js",
-  "unpkg": "dist/aimer.js",
-  "cdn": "dist/aimer.js",
+  "main": "dist/aimer.js",
   "devDependencies": {
     "marked3": "^0.5.1",
     "poi": "^9.4.4",

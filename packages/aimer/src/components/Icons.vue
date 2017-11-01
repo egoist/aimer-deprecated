@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import GitHub from '!svg-to-component-loader!@/svg/github.svg'
-import Twitter from '!svg-to-component-loader!@/svg/twitter.svg'
+import GitHub from '!svg-to-component-loader!../svg/github.svg'
+import Twitter from '!svg-to-component-loader!../svg/twitter.svg'
 
 export default {
   props: {
