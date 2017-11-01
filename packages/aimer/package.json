@@ -4,7 +4,7 @@
   "description": "The UI Development Framework",
   "scripts": {
     "example": "poi -c example/poi.config.js",
-    "prepublishOnly": "npm run build && npm run build:min",
+    "prepublishOnly": "npm run build:cjs && npm run build:umd",
     "build:cjs": "poi build --config poi.config.js --format cjs --filename.js aimer.common.js",
     "build:umd": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.js"
   },
