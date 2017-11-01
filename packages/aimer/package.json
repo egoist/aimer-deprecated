@@ -1,6 +1,6 @@
 {
   "name": "aimer",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "The UI Development Framework",
   "scripts": {
     "example": "poi -c example/poi.config.js",

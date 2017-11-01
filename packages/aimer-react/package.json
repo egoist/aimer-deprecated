@@ -1,6 +1,6 @@
 {
   "name": "aimer-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/aimer-react.common.js",
   "unpkg": "dist/aimer-react.js",
   "cdn": "dist/aimer-react.js",
@@ -14,12 +14,12 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "aimer": "*",
+    "aimer": "^2.0.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "aimer": "*",
+    "aimer": "^2.0.8",
     "bili": "^0.18.2",
     "poi": "^9.4.4",
     "poi-preset-react": "^9.1.0",
