@@ -1,12 +1,14 @@
 import Aimer from 'aimer'
 import 'aimer/dist/aimer.css'
+import AimerVue from 'aimer-vue'
 import marked from 'marked3'
 import Button from './Button.vue'
 
 const aimer = new Aimer({
   title: 'Button Example',
   github: 'egoist/aimer',
-  twitter: '_egoistlily'
+  twitter: '_egoistlily',
+  adapter: AimerVue
 })
 
 aimer.add({
