@@ -22,7 +22,6 @@
     "github-markdown-css": "^2.9.0",
     "nano-assign": "^1.0.0",
     "nanoquery": "^1.1.0",
-    "slugo": "^0.2.1",
-    "vue": "^2.5.2"
+    "slugo": "^0.2.1"
   }
 }
