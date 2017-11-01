@@ -5,21 +5,26 @@
   "scripts": {
     "example": "poi -c example/poi.config.js",
     "prepublishOnly": "npm run build && npm run build:min",
-    "build": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.js",
-    "build:min": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.min.js --filename.css aimer.min.css --minimize"
+    "build:cjs": "poi build --config poi.config.js --format cjs --filename.js aimer.common.js",
+    "build:umd": "poi build --config poi.config.js --format umd --module-name Aimer --filename.js aimer.js"
   },
   "files": [
     "dist"
   ],
-  "main": "dist/aimer.js",
+  "main": "dist/aimer.common.js",
+  "unpkg": "dist/aimer.js",
+  "cdn": "dist/aimer.js",
   "devDependencies": {
     "github-markdown-css": "^2.9.0",
     "marked3": "^0.5.1",
+    "svg-to-component-loader": "^0.1.1"
+  },
+  "license": "MIT",
+  "dependencies": {
     "nano-assign": "^1.0.0",
     "nanoquery": "^1.1.0",
     "poi": "^9.4.4",
     "slugo": "^0.2.1",
-    "svg-to-component-loader": "^0.1.1"
-  },
-  "license": "MIT"
+    "vue": "^2.5.2"
+  }
 }
