@@ -1,4 +1,4 @@
-import Aimer from 'aimer'
+import Aimer from 'aimer/src'
 import 'aimer/dist/aimer.css'
 import AimerReact from '../src'
 import React from 'react'
