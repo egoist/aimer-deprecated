@@ -11,7 +11,9 @@ if (typeof window !== 'undefined') {
 export default class Aimer {
   constructor({ adapter: Adapter, ...config } = {}) {
     if (!Adapter) {
-      throw new Error(`[aimer] You have to provide an adapter for the framework you're using!`)
+      throw new Error(
+        `[aimer] You have to provide an adapter for the framework you're using!`
+      )
     }
 
     this.Adapter = Adapter

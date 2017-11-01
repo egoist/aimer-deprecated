@@ -14,8 +14,10 @@ module.exports = {
   },
   extendWebpack(config) {
     // Aimer always uses its own copy of Vue
-    config.externals(externals({
-      whitelist: ['vue', /\.(?!(?:jsx?|json)$).{1,5}$/i]
-    }))
+    config.externals(
+      externals({
+        whitelist: ['vue', /\.(?!(?:jsx?|json)$).{1,5}$/i]
+      })
+    )
   }
 }
