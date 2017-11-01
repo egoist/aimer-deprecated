@@ -1,6 +1,6 @@
 {
   "name": "aimer-vue",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/aimer-vue.common.js",
   "unpkg": "dist/aimer-vue.js",
   "cdn": "dist/aimer-vue.js",
@@ -14,11 +14,11 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "aimer": ">=2",
+    "aimer": "^2.0.6",
     "vue": ">=2"
   },
   "devDependencies": {
-    "aimer": "^2.0.5",
+    "aimer": "^2.0.6",
     "bili": "^0.18.2",
     "poi": "^9.4.4",
     "vue": "^2.5.0"
