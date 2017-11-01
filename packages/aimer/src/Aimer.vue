@@ -64,7 +64,7 @@
 
 <script>
 import qs from 'nanoquery'
-import Icons from './components/Icons.vue'
+import Icons from './components/Icons/Icons'
 
 function getCurrentTab({ readme }) {
   return readme ? 'readme' : 'example'
