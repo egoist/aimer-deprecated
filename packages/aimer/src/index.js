@@ -2,6 +2,7 @@
 import './polyfills'
 import Vue from 'vue'
 import slugo from 'slugo'
+import AimerVue from './AimerVue'
 import AimerRoot from './Aimer.vue'
 
 if (typeof window !== 'undefined') {
@@ -9,13 +10,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default class Aimer {
-  constructor({ adapter: Adapter, ...config } = {}) {
-    if (!Adapter) {
-      throw new Error(
-        `[aimer] You have to provide an adapter for the framework you're using!`
-      )
-    }
-
+  constructor({ adapter: Adapter = AimerVue, ...config } = {}) {
     this.Adapter = Adapter
     this.stories = []
     this.config = config

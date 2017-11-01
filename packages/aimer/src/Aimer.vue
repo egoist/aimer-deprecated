@@ -27,7 +27,8 @@
     </header>
     <section class="aimer-main">
       <div class="aimer-cell aimer-component">
-        <div class="aimer-target-wrapper" ref="targetWrapper"></div>
+        <component :is="getVueComponent(currentStory.component)" v-if="Adapter.isVue" />
+        <div class="aimer-target-wrapper" ref="targetWrapper" v-else></div>
       </div>
       <div class="aimer-cell aimer-tabs" v-if="currentStory.example">
         <div class="aimer-tab-headers">
@@ -139,11 +140,12 @@ export default {
 
   methods: {
     handleRender() {
-      const { targetWrapper } = this.$refs
-      let { component } = this.currentStory
-      component = typeof component === 'function' ? component() : component
-      mountComponent(this.adapter, targetWrapper, component)
-
+      if (!this.Adapter.isVue) {
+        const { targetWrapper } = this.$refs
+        let { component } = this.currentStory
+        component = typeof component === 'function' ? component() : component
+        mountComponent(this.adapter, targetWrapper, component)
+      }
       updateURL({
         title: `${this.currentStory.title} - ${this.config.title || 'Aimer'}`,
         story: this.currentStory.slug
@@ -152,6 +154,10 @@ export default {
 
     chooseTab(tab) {
       this.currentTab = tab
+    },
+
+    getVueComponent(comp) {
+      return typeof comp === 'function' ? comp() : comp
     }
   },
 

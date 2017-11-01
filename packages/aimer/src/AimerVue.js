@@ -18,3 +18,5 @@ export default class AimerVue {
     return this.$el
   }
 }
+
+AimerVue.isVue = true

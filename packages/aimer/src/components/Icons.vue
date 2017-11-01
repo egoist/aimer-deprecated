@@ -14,6 +14,8 @@ import GitHub from '!svg-to-component-loader!../svg/github.svg'
 import Twitter from '!svg-to-component-loader!../svg/twitter.svg'
 
 export default {
+  name: 'aimer-icons',
+
   props: {
     github: String,
     twitter: String

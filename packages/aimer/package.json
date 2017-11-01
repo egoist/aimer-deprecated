@@ -18,8 +18,7 @@
     "github-markdown-css": "^2.9.0",
     "marked3": "^0.5.1",
     "svg-to-component-loader": "^0.1.1",
-    "vue": "^2.5.2",
-    "webpack-node-externals": "^1.6.0"
+    "vue": "^2.5.2"
   },
   "license": "MIT",
   "dependencies": {

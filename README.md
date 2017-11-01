@@ -17,14 +17,12 @@ Assume you have a component `Button.vue` and you wanna demonstrate it:
 ```js
 import Aimer from 'aimer'
 import 'aimer/dist/aimer.css'
-import AimerVue from 'aimer-vue'
 
 // And the button you wanna demonstrate
 import MyButton from './path/to/Button.vue'
 
 const aimer = new Aimer({
-  title: 'optional header title',
-  adapter: AimerVue
+  title: 'optional header title'
 })
 
 aimer.add({
