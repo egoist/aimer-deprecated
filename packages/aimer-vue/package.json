@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "aimer": "^2.0.6",
+    "aimer": ">=2.0.6",
     "vue": ">=2"
   },
   "devDependencies": {
