@@ -14,12 +14,12 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "aimer": ">=2",
+    "aimer": "*",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "aimer": "^1.3.0",
+    "aimer": "*",
     "bili": "^0.18.2",
     "poi": "^9.4.4",
     "poi-preset-react": "^9.1.0",

@@ -14,11 +14,11 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "aimer": "^2.0.7",
+    "aimer": "*",
     "vue": ">=2"
   },
   "devDependencies": {
-    "aimer": "^2.0.7",
+    "aimer": "*",
     "bili": "^0.18.2",
     "poi": "^9.4.4",
     "vue": "^2.5.0"
