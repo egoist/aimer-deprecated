@@ -1,6 +1,6 @@
 {
   "name": "aimer",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "The UI Development Framework",
   "scripts": {
     "example": "poi -c example/poi.config.js",
@@ -13,13 +13,13 @@
   ],
   "main": "dist/aimer.js",
   "devDependencies": {
-    "marked3": "^0.5.1",
-    "poi": "^9.4.4",
-    "svg-to-component-loader": "^0.1.1",
     "github-markdown-css": "^2.9.0",
+    "marked3": "^0.5.1",
     "nano-assign": "^1.0.0",
     "nanoquery": "^1.1.0",
-    "slugo": "^0.2.1"
+    "poi": "^9.4.4",
+    "slugo": "^0.2.1",
+    "svg-to-component-loader": "^0.1.1"
   },
   "license": "MIT"
 }
