@@ -65,6 +65,7 @@ See it [in action](https://aimer-button.egoist.moe). 🚀
 ## Examples
 
 - [button](https://aimer-button.egoist.moe/)
+- [vue-mugen-scroll](https://egoist.moe/vue-mugen-scroll/)
 
 ## API
 
